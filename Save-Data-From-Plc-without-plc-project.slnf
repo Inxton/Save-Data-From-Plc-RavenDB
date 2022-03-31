@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "Save-Data-From-Plc.sln",
+    "projects": [
+      "CSharp\\Save-Data-From-Plc\\Save-Data-From-Plc.csproj",
+      "PLC\\PlcConnector\\PlcConnector.csproj"
+    ]
+  }
+}

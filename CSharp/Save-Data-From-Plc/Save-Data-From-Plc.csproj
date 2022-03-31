@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Save_Data_From_Plc</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="TcOpen.Inxton.RavenDb" Version="0.5.0-alpha.829" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\PLC\PlcConnector\PlcConnector.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(SolutionDir)_Vortex\builder\vortex.compiler.console.exe -s $(SolutionPath) > $(SolutionDir)jojo.log"  ContinueOnError="true"/>
+  </Target>
+
+</Project>

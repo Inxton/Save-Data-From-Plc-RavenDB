@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="DataManager" Id="{2fa16878-1e00-032b-0e94-c02db7ea7b02}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK DataManager EXTENDS TcoData.TcoDataExchange
+VAR
+	_data : Data;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[SUPER^();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

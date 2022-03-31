@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="Data" Id="{e4b707dd-7315-08c5-1c1c-ad9826559de9}">
+    <Declaration><![CDATA[TYPE Data EXTENDS TcoData.TcoEntity :
+STRUCT
+	DataId : STRING;
+    Person_0 :Person;
+    Person_1 :Person;
+    Person_2 :Person;
+    Person_3 :Person;
+    Person_4 :Person;
+    Person_5 :Person;
+    Person_6 :Person;
+    Person_7 :Person;
+    Person_8 :Person;
+    Person_9 :Person;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

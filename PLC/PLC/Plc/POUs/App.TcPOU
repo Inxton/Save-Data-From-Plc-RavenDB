@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="App" Id="{8033be6f-9c59-00d4-2acb-1084e7fed8ca}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK App EXTENDS TcoCore.TcoContext
+VAR
+	Step: INT;
+	GenerateDataTask: TcoCore.TcoRemoteTask(THIS^);
+	DataManager : DataManager(THIS^);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Main" Id="{f5a0c0be-5403-0f3b-366b-fe6ead95d67b}">
+      <Declaration><![CDATA[(*~
+	<docu>
+		<summary>
+			Main method of the TcoContext. This is the entry point of any control logic that belongs to this context. 
+			The call of this method is ensured by calling the <c>InstanceName.Run()</c> method, and it must not be called explicitly.
+			This method is abstract, and it must be overridden in derived block.
+		</summary>
+	</docu>
+~*)
+METHOD PROTECTED  Main
+VAR
+	ID : STRING;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GenerateDataTask();
+DataManager();
+
+CASE Step OF
+	0 : 
+		IF GenerateDataTask.Invoke().Done THEN
+			Step := Step + 10;
+		END_IF
+	10 :
+		Step:= Step + 10;
+	20 :
+		ID := ULINT_TO_STRING(THIS^._rtc.TickClock());
+		IF DataManager.Create(ID).Done THEN
+			Step := 0;
+		END_IF
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

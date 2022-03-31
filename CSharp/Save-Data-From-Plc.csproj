@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Inxton.Package.Vortex.Core" Version="1.15.6-nightly.704" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PLC\PlcConnector\PlcConnector.csproj" />
+  </ItemGroup>
+
+</Project>
